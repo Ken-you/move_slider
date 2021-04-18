@@ -17,13 +17,13 @@ class moveViewController: UIViewController {
     
     @IBOutlet weak var stringLabel: UILabel!
     
-    // 設定籃球移動時的起始位置
+    // 設定籃球移動路徑
     func updateLocation(degrees:CGFloat){
     
         basketballImageView.transform = CGAffineTransform.identity.rotated(by: CGFloat.pi/180 * degrees).translatedBy(x: -100, y: 0)
     }
     
-    // 畫面啟動 呼叫 updateLocation 角度是 0
+    // 畫面啟動 呼叫 updateLocation 讓籃球一開始從角度 0 開始跑
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLocation(degrees: 0)
@@ -52,7 +52,6 @@ class moveViewController: UIViewController {
             stringLabel.layer.borderWidth = 3
             stringLabel.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
             stringLabel.layer.cornerRadius = 5
-            
             togetherImageView.isHidden = false
             
         }else{
@@ -60,7 +59,6 @@ class moveViewController: UIViewController {
             stringLabel.backgroundColor = .none
             stringLabel.layer.borderWidth = 0
             stringLabel.layer.borderColor = .none
-            
             togetherImageView.isHidden = true
         }
     }
